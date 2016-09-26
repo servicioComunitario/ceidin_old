@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Ceidin\User::class,
+            'model' => Ceidin\Models\Usuario::class,
         ],
 
         // 'users' => [
