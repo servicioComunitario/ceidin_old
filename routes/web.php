@@ -1,4 +1,6 @@
 <?php
+use Ceidin\Models\Persona;
+use Ceidin\Models\Usuario;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +15,9 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/prueba', function () {
+  return Usuario::find(1)->persona->nombre_1;
 });

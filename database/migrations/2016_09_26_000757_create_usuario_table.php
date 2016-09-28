@@ -14,12 +14,16 @@ class CreateUsuarioTable extends Migration
     public function up()
     {
         Schema::create('usuario', function (Blueprint $table) {
-            $table->integer('id_persona')->index();
+            $table->integer('id_persona')->unsigned();
             $table->string('usuario')->unique();
             $table->string('password');
             $table->string('correo')->unique();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('id_persona')
+            ->references('id')->on('persona')
+            ->onUpdate('cascade');
         });
     }
 
