@@ -1,6 +1,6 @@
 <?php
 
-namespace Ceidin;
+namespace Ceidin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
