@@ -29,4 +29,13 @@ class Usuario extends Authenticatable{
     // segundo parametro: nombre de la columna asociada en la tabla padre
     return $this->belongsTo('Ceidin\Models\Persona', 'id_persona', 'id');
   }
+
+  public function roles(){
+    return $this->belongsToMany('Ceidin\Models\Rol', 'rol_usuario' ,'id_usuario', 'id_rol');
+  }
+
+  public function estatus(){
+    return $this->belongsTo('Ceidin\Models\Estatus', 'id_estatus');
+  }
+
 }

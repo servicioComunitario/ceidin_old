@@ -18,8 +18,8 @@ class Persona extends Model{
 
   public function usuario(){
   	// primer parametro: nombre del modelo al que hacemos referencia
-  	// segundo parametro: nombre de la clave ajena
-  	// tercer parametro: columna local que debe ser utilizada para la relacion
-    return $this->hasOne('Ceidin\Models\Ususario','id_persona','id');
+    // segundo parametro: nombre de la clave ajena
+    // tercer parametro: columna local que debe ser utilizada para la relacion
+    return $this->hasOne('Ceidin\Models\Usuario', 'id_persona', 'id');
   }
 }
