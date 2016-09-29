@@ -15,15 +15,22 @@ class CreateUsuarioTable extends Migration
     {
         Schema::create('usuario', function (Blueprint $table) {
             $table->integer('id_persona')->unsigned();
-            $table->string('usuario')->unique();
-            $table->string('password');
-            $table->string('correo')->unique();
+            $table->text('usuario')->unique();
+            $table->text('password');
+            $table->text('correo')->unique();
+            $table->integer('id_estatus')->unsigned();
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('id_persona')
             ->references('id')->on('persona')
-            ->onUpdate('cascade');
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
+
+            $table->foreign('id_estatus')
+            ->references('id')->on('estatus')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
         });
     }
 

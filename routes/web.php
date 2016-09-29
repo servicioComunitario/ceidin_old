@@ -1,6 +1,8 @@
 <?php
 use Ceidin\Models\Persona;
 use Ceidin\Models\Usuario;
+use Ceidin\Models\Estatus;
+use Ceidin\Models\Rol;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,5 @@ Route::get('/', function () {
 
 
 Route::get('/prueba', function () {
-  return Usuario::find(1)->persona->nombre_1;
+  return Usuario::find(1)->roles;
 });

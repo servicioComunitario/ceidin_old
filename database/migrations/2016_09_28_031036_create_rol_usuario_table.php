@@ -14,7 +14,22 @@ class CreateRolUsuarioTable extends Migration
     public function up()
     {
         Schema::create('rol_usuario', function (Blueprint $table) {
-            $table->increments('id');
+            
+            $table->integer('id_usuario')->unsigned();
+            $table->integer('id_rol')->unsigned();
+
+            $table->primary(['id_usuario', 'id_rol']);
+
+            $table->foreign('id_usuario')
+            ->references('id_persona')->on('usuario')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
+
+            $table->foreign('id_rol')
+            ->references('id')->on('rol')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
+
             $table->timestamps();
         });
     }
