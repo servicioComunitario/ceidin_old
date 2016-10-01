@@ -4,7 +4,7 @@ namespace Ceidin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AntecendenteSaludMedicamento extends Model
+class AntecedenteSaludAlergia extends Model
 {
     //
 }

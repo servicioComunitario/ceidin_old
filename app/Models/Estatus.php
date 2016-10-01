@@ -10,11 +10,13 @@ class Estatus extends Model
 
     protected $primaryKey = 'id';
 
+    //public $timestamps = true;
+
     protected $fillable = [
       'nombre'
     ];
 
     public function usuarios(){
-      return $this->hasMany('Ceidin\Models\Usuario', 'id_estatus');
+    	return $this->hasMany('Ceidin\Models\Usuario', 'id_estatus');
     }
 }

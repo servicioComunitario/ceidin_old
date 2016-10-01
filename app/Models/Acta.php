@@ -10,8 +10,10 @@ class Acta extends Model
 
     protected $primaryKey = 'id';
 
+    //public $timestamps = true;
+
     protected $fillable = [
-      'numero_acta'
+        'numero_acta'
     ];
 
     public function productos(){
@@ -19,14 +21,14 @@ class Acta extends Model
     }
 
     public function sae(){
-      return $this->belongsTo('Ceidin\Models\Empleado', 'id_sae', 'id_persona');
+        return $this->belongsTo('Ceidin\Models\Empleado', 'id_sae', 'id_persona');
     }
 
     public function directivo(){
-      return $this->belongsTo('Ceidin\Models\Empleado', 'id_directivo', 'id_persona');
+        return $this->belongsTo('Ceidin\Models\Empleado', 'id_directivo', 'id_persona');
     }
 
     public function docente(){
-      return $this->belongsTo('Ceidin\Models\Empleado', 'id_docente', 'id_persona');
+        return $this->belongsTo('Ceidin\Models\Empleado', 'id_docente', 'id_persona');
     }
 }

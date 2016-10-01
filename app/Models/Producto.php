@@ -10,11 +10,17 @@ class Producto extends Model
 
     protected $primaryKey = 'id';
 
+    //public $timestamps = true;
+
     protected $fillable = [
-      'nombre'
+    	'nombre'
     ];
 
     public function actas(){
       	return $this->belongsToMany('Ceidin\Models\Acta', 'acta_producto','id_producto','id_acta');
+    }
+
+    public function unidad(){
+        return $this->belongsTo('Ceidin\Models\Unidad', 'id_unidad');
     }
 }
