@@ -8,7 +8,7 @@ class Rol extends Model
 {
     protected $table = 'rol';
 
-    protected $primarykey = 'id';
+    protected $primaryKey = 'id';
 
     public $timestamps = true;
 

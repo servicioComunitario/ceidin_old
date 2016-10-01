@@ -8,9 +8,7 @@ class Estatus extends Model
 {
     protected $table = 'estatus';
 
-    protected $primarykey = 'id';
-
-    public $timestamps = true;
+    protected $primaryKey = 'id';
 
     protected $fillable = [
       'nombre'

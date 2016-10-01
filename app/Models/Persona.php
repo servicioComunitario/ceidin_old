@@ -5,12 +5,11 @@ namespace Ceidin\Models;
 use Illuminate\Database\Eloquent\Model;
 use Ceidin\Models\Usuario;
 
-class Persona extends Model{
+class Persona extends Model
+{
   protected $table = 'persona';
 
-  protected $primarykey = 'id';
-
-  public $timestamps = true;
+  protected $primaryKey = 'id';
 
   protected $fillable = [
     'nombre_1', 'nombre_2', 'apellido_1', 'apellido_2', 'cedula', 'direccion', 'telefono', 'fecha_nacimiento'
