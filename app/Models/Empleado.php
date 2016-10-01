@@ -10,6 +10,8 @@ class Empleado extends Model
 
     protected $primaryKey = 'id_persona';
 
+    //public $timestamps = true;
+
     public function actasPorSae(){
         return $this->hasMany('Ceidin\Models\Acta', 'id_sae');
     }
@@ -20,5 +22,25 @@ class Empleado extends Model
 
     public function actasPorDocente(){
         return $this->hasMany('Ceidin\Models\Acta', 'id_docente');
+    }
+
+     public function cargo(){
+        return $this->belongsTo('Ceidin\Models\Cargo', 'id_cargo', 'id_persona');
+    }
+
+    public function diasLaborebles(){
+        return $this->belongsToMany('Ceidin\Models\DiaLaborable', 'asistencia' ,'id_empleado', 'id_dia_laborable');
+    }
+
+    public function persona(){
+        return $this->belongsTo('Ceidin\Models\Persona', 'id_persona', 'id');
+    }
+
+    public function retiros(){
+        return $this->hasMany('Ceidin\Models\Retiro', 'atentido_por');
+    }
+
+    public function secciones(){
+        return $this->hasMany('Ceidin\Models\Seccion', 'id_docente');
     }
 }
