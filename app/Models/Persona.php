@@ -11,8 +11,6 @@ class Persona extends Model
 
   	protected $primaryKey = 'id';
 
-  	//public $timestamps = true;
-
   	protected $fillable = [
 		'nombre_1', 
 		'nombre_2', 

@@ -25,3 +25,5 @@ Route::get('/', function () {
 Route::get('/prueba', function () {
   return Empleado::find(2)->actasPorDirectivo;
 });
+
+Route::resource('empleado','EmpleadoController');
