@@ -34,7 +34,7 @@
 					<div class="panel-body">
 						<div class="container-fluid">
 							<div class="row">
-								<div class="col-sm-offset-11 col-sm-1">
+								<div class="col-xs-12 col-sm-offset-10 col-sm-1 col-md-offset-10 ">
 									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-registrar-empleado">
 										Nuevo
 									</button>
@@ -68,7 +68,7 @@
  --}}
 															&nbsp;
 
-															<a href="javascript:void(0);" onclick="destroyUser(this.id);" id="{{$empleado->id}}"><i class="fa fa-trash" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-sm"></i></a>
+															<a href="javascript:void(0);" onclick="destroyUser(this.id);" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-sm" id="{{$empleado->id}}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
 															{!!Form::open( ['route' => ['empleado.destroy', $empleado->id], 'method'=>'DELETE','id'=>'form-destroy-'.$empleado->id ] )!!}
 															{!!Form::close()!!}
@@ -96,5 +96,5 @@
 
 	@include('empleado.modal-registrar')
 	{{-- @include('empleado.modal-edit') --}}
-	{{-- @include('empleado.modal-confirmar') --}}
+	@include('empleado.modal-confirmar')
 @endsection

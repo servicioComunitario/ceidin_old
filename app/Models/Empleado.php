@@ -25,7 +25,8 @@ class Empleado extends Model
     }
 
      public function cargo(){
-        return $this->belongsTo('Ceidin\Models\Cargo', 'id_cargo', 'id_persona');
+        //return $this->belongsTo('Ceidin\Models\Cargo', 'id_cargo', 'id_persona');
+        return $this->belongsTo('Ceidin\Models\Cargo', 'id_cargo', 'id');
     }
 
     public function diasLaborebles(){
@@ -43,4 +44,9 @@ class Empleado extends Model
     public function secciones(){
         return $this->hasMany('Ceidin\Models\Seccion', 'id_docente');
     }
+
+    public function usuarios(){
+        return $this->hasManyThrough('Ceidin\Models\Usuario', 'Ceidin\Models\Persona', 'id', 'id_persona');
+    }
+
 }

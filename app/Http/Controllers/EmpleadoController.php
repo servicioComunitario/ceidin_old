@@ -133,7 +133,7 @@ class EmpleadoController extends Controller{
                         $usuario = new Usuario;
                         $usuario->id_persona = $persona->id;
                         $usuario->usuario = $persona->cedula;
-                        $usuario->password = $persona->cedula;
+                        $usuario->password = encrypt($persona->cedula);
                         $usuario->correo = $request['correo'];
                         $usuario->id_estatus = 1;
                         try{
@@ -284,6 +284,7 @@ class EmpleadoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
+/*
         DB::beginTransaction();
         try{
             if(Empleado::destroy($id)){
@@ -311,9 +312,37 @@ class EmpleadoController extends Controller{
             Session::flash('message-errors','Error al eliminar empleado');
             return Redirect::to('empleado');
         }
+*/
 
-        Empleado::destroy($id);
+        DB::beginTransaction();
+        try{
+            if(Empleado::destroy($id)){
+                try{
+                    if(Usuario::destroy($id)){
+                        try{
+                            if(Persona::destroy($id))
+                                DB::commit();
+                            else
+                                DB::rollback();
+                        } catch(Exception $e){
+                            Session::flash('message-errors','Error al eliminar persona');
+                            return Redirect::to('empleado');
+                        }
+                    }
+                    else
+                        DB::rollback();
+                } catch(Exception $e){
+                    Session::flash('message-errors','Error al eliminar usuario');
+                    return Redirect::to('empleado');
+                }
+            }else
+                DB::rollback();
+        } catch(Exception $e){
+            Session::flash('message-errors','Error al eliminar empleado');
+            return Redirect::to('empleado');
+        }
         Session::flash('message','El usuario ha sido eliminado exitosamente.');
         return Redirect::to('empleado');
+        
     }
 }

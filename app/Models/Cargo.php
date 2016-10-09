@@ -17,6 +17,7 @@ class Cargo extends Model
     ];
 
     public function empleados(){
-    	return $this->hasMany('Ceidin\Models\Empleado', 'id_cargo', 'id_persona');
+    	//return $this->hasMany('Ceidin\Models\Empleado', 'id_cargo', 'id_persona');
+		return $this->hasMany('Ceidin\Models\Empleado', 'id_cargo', 'id');
     }
 }

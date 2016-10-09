@@ -6,11 +6,11 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title text-center" id="myModalLabel">Registro Empleado</h4>
       </div>
-      {!! Form::open(array('metho'=>'POST', 'autocomplete' => 'off', 'class'=>'form-horizontal')  )!!}
+      {!! Form::open(['route' => 'empleado.store', 'metho'=>'POST', 'autocomplete' => 'on', 'class'=>'form-horizontal' ]  )!!}
         <div class="modal-body">
 
           @include('forms.datos-personales')
-          <input type="hidden" name="_token" value="{{csrf_token()}}" id="token-add-empleado" >
+          {{-- <input type="hidden" name="_token" value="{{csrf_token()}}" id="token-add-empleado" > --}}
           @include('empleado.forms.cargo')
 
         </div>
